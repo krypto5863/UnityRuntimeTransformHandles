@@ -10,7 +10,7 @@ namespace TransformHandles.Utils
             {
                 return false;
             }
-        
+
             return other.IsChildOf(self);
         }
 
@@ -19,7 +19,7 @@ namespace TransformHandles.Utils
             var bounds = new Bounds(Vector3.zero, Vector3.zero);
             var renderers = transform.GetComponentsInChildren<Renderer>();
             var renderersCount = renderers.Length;
-            
+
             var averageCenter = Vector3.zero;
             var averageSize = Vector3.zero;
             foreach (var renderer in renderers)
@@ -28,9 +28,9 @@ namespace TransformHandles.Utils
                 averageCenter += bound.center;
                 averageSize += bound.size;
             }
-            bounds.center = averageCenter/renderersCount;
-            bounds.size = averageSize/renderersCount;
-            
+            bounds.center = averageCenter / renderersCount;
+            bounds.size = averageSize / renderersCount;
+
             return bounds;
         }
     }

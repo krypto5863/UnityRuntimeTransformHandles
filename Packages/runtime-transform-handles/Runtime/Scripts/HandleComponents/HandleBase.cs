@@ -6,9 +6,11 @@ namespace TransformHandles
     public class HandleBase : MonoBehaviour
     {
         public event Action InteractionStart;
+
         public event Action InteractionEnd;
+
         public event Action<float> InteractionUpdate;
-        
+
         protected Handle ParentHandle;
 
         protected Color DefaultColor;
@@ -23,12 +25,12 @@ namespace TransformHandles
         {
             Material.color = DefaultColor;
         }
-        
+
         public virtual void SetColor(Color color)
         {
             Material.color = color;
         }
-        
+
         public virtual void StartInteraction(Vector3 pHitPoint)
         {
             HitPoint = pHitPoint;

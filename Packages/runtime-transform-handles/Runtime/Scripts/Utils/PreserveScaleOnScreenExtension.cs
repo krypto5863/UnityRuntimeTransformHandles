@@ -4,7 +4,7 @@ public static class PreserveScaleOnScreenExtension
 {
     public static void PreserveScaleOnScreen(this Transform transform, float currentFOV, float desiredSizeInPixels, Camera camera)
     {
-       var position = transform.position;
+        var position = transform.position;
 
         // Calculate the current distance to the camera, use near plane.
         var planes = GeometryUtility.CalculateFrustumPlanes(camera);

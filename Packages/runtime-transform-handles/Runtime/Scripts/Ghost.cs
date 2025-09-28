@@ -50,39 +50,46 @@ namespace TransformHandles
                 case HandleType.Position:
                     UpdatePosition();
                     break;
+
                 case HandleType.Rotation:
                     UpdateRotation();
-                    
+
                     break;
+
                 case HandleType.Scale:
                     UpdateScale();
-                    
+
                     break;
+
                 case HandleType.PositionRotation:
                     UpdatePosition();
                     UpdateRotation();
-                    
+
                     break;
+
                 case HandleType.PositionScale:
                     UpdatePosition();
                     UpdateScale();
 
                     break;
+
                 case HandleType.RotationScale:
                     UpdateRotation();
                     UpdateScale();
-                    
+
                     break;
+
                 case HandleType.All:
                     UpdatePosition();
                     UpdateRotation();
                     UpdateScale();
-                    
+
                     break;
+
                 default:
                     throw new ArgumentOutOfRangeException();
             }
-            
+
             ResetInitialGhostTransformProperties();
         }
 
@@ -100,10 +107,10 @@ namespace TransformHandles
 
         private void UpdateScale()
         {
-            var scaleChange= GhostTransform.localScale - _initialProperties.Scale;
+            var scaleChange = GhostTransform.localScale - _initialProperties.Scale;
             _handleManager.UpdateGroupScaleUpdate(this, scaleChange);
         }
-        
+
         private void ResetInitialGhostTransformProperties()
         {
             _initialProperties.Position = GhostTransform.position;
