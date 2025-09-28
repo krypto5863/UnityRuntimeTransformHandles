@@ -1,5 +1,6 @@
 ﻿using TransformHandles.Utils;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 namespace TransformHandles
 {
@@ -35,7 +36,7 @@ namespace TransformHandles
 
         public override void Interact(Vector3 pPreviousPosition)
         {
-            var cameraRay = _handleCamera.ScreenPointToRay(Input.mousePosition);
+            var cameraRay = _handleCamera.ScreenPointToRay(Mouse.current.position.ReadValue());
 
             if (!_axisPlane.Raycast(cameraRay, out var hitT))
             {
@@ -90,7 +91,7 @@ namespace TransformHandles
 
             _axisPlane = new Plane(_rotatedAxis, ParentHandle.target.position);
 
-            var cameraRay = _handleCamera.ScreenPointToRay(Input.mousePosition);
+            var cameraRay = _handleCamera.ScreenPointToRay(Mouse.current.position.ReadValue());
             var startHitPoint = _axisPlane.Raycast(cameraRay, out var hitT) ?
                 cameraRay.GetPoint(hitT) : _axisPlane.ClosestPointOnPlane(pHitPoint);
 

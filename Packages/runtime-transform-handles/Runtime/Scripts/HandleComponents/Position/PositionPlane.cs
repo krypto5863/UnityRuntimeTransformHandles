@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.InputSystem;
 
 namespace TransformHandles
 {
@@ -38,7 +39,7 @@ namespace TransformHandles
 
         public override void Interact(Vector3 pPreviousPosition)
         {
-            var ray = _handleCamera.ScreenPointToRay(Input.mousePosition);
+            var ray = _handleCamera.ScreenPointToRay(Mouse.current.position.ReadValue());
 
             _plane.Raycast(ray, out var d);
 
@@ -80,7 +81,7 @@ namespace TransformHandles
             var position = ParentHandle.target.position;
             _plane = new Plane(rPerp, position);
 
-            var ray = _handleCamera.ScreenPointToRay(Input.mousePosition);
+            var ray = _handleCamera.ScreenPointToRay(Mouse.current.position.ReadValue());
 
             _plane.Raycast(ray, out var d);
 

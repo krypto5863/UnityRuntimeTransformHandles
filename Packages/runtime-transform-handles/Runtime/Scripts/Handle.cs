@@ -5,7 +5,7 @@ namespace TransformHandles
 {
     public class Handle : MonoBehaviour
     {
-        [SerializeField] private float autoScaleSizeInPixels = 192;
+        [SerializeField] public float autoScaleSizeInPixels = 192;
         [SerializeField] public bool autoScale;
 
         public virtual event Action<Handle> OnInteractionStartEvent;

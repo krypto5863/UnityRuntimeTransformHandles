@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.InputSystem;
 
 namespace TransformHandles
 {
@@ -19,7 +20,7 @@ namespace TransformHandles
 
         public override void Interact(Vector3 pPreviousPosition)
         {
-            var mouseVector = (Input.mousePosition - pPreviousPosition);
+            var mouseVector = ((Vector3)Mouse.current.position.ReadValue() - pPreviousPosition);
             var d = (mouseVector.x + mouseVector.y) * Time.deltaTime * 2;
             delta += d;
             ParentHandle.target.localScale = _startScale + Vector3.Scale(_startScale, _axis) * delta;
